@@ -17,6 +17,9 @@
 # Documentation
 
 # How to Install
+```console
+$ pip install greydot-api
+```
 
 ## Building from Source for Developers
 
