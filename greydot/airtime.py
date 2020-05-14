@@ -4,21 +4,34 @@ This function allows you to query your Airtime balance. If you enable notify by 
 URL :
 https://greydotapi.me/?k=[APP Key]&do=[FID]
 
-[APP Key] Your APP Key
-[FID]The function ID for Airtime balance is 5
+[**APP Key**] Your APP Key
+
+[**FID**]The function ID for Airtime balance is 5
+
 
 Example url :
 https://greydotapi.me/?k=abcdefghijklmnopqrst&do=5
 
 Example reply :
-<?xml version="1.0" encoding="utf-8" ?>
-<query>
+
+    <?xml version="1.0" encoding="utf-8" ?>
+
+    <query>
+
     <query_result>
-        <status>Success</status>
-        <function>Airtime balance</function>
-        <amount>20.00</amount>
+
+    <status>Success</status>
+
+    <function>Airtime balance</function>
+
+    <amount>20.00</amount>
+
     </query_result>
+
     <query_status>DONE</query_status>
+
     <query_code>D0005</query_code>
-</query>
+
+    </query>
+
 """

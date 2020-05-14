@@ -10,6 +10,8 @@ Welcome to greydot-api's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   API Reference <api.rst>
+
 
 
 Indices and tables

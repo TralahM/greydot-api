@@ -2,32 +2,51 @@
 Use the API to send an sms to a number. If you enable notify by email, you will receive an email every time the url is called with your APP Key.
 
 URL :
-https://greydotapi.me/?par1=[Number to SMS]&par2=[url encoded text message]&k=[APP Key]&do=[FID]
+https://greydotapi.me/?par1=[Number-to-SMS]&par2=[url-encoded-text-message]&k=[APP-Key]&do=[FID]
 
-[Number to SMS]Number that will receive the sms message or list of numbers each separated by an e
-[url encoded text message]Text to be sent to number in url encoded form
-[APP Key] Your APP Key
-[FID]The function ID for Send sms is 11
+[**Number to SMS**] Number that will receive the sms message or list of numbers each separated by an e
+
+[**url encoded text message**] Text to be sent to number in url encoded form
+
+[**APP Key**] Your APP Key
+
+[**FID**] The function ID for Send sms is 11
+
+
 
 Bulk Example url :
-https://greydotapi.me/?par1=0820000000e0820000001e0820000002&
-par2=Test+sms%2C+Hallo+world.&k=abcdefghijklmnopqrst&do=11
+https://greydotapi.me/?par1=0820000000e0820000001e0820000002&par2=Test+sms%2C+Hallo+world.&k=abcdefghijklmnopqrst&do=11
+
 Example url :
-https://greydotapi.me/?par1=0820000000&
-par2=Test+sms%2C+Hallo+world.&k=abcdefghijklmnopqrst&do=11
+https://greydotapi.me/?par1=0820000000&par2=Test+sms%2C+Hallo+world.&k=abcdefghijklmnopqrst&do=11
 
 Example reply :
-<?xml version="1.0" encoding="utf-8" ?>
-<query>
+
+    <?xml version="1.0" encoding="utf-8" ?>
+
+    <query>
+
     <query_result>
-      <status>Success</status>
-      <status>Send_SMS</status>
-      <to>27110000000</to>
-      <sms_id>000</sms_id>
+
+    <status>Success</status>
+
+    <status>Send_SMS</status>
+
+    <to>27110000000</to>
+
+    <sms_id>000</sms_id>
+
     </query_result>
-<query_status>DONE</query_status>
-<query_code>D0011</query_code>
-</query>
+
+    <query_status>DONE</query_status>
+
+    <query_code>D0011</query_code>
+
+    </query>
+
+
+
+
 """
 import requests
 from lxml import etree
@@ -40,22 +59,28 @@ if os.environ.get("GREYDOT_APP_KEY") is not None:
     GREYDOT_APP_KEY = os.environ.get("GREYDOT_APP_KEY")
 else:
     GREYDOT_APP_KEY = "GREYDOT_APP_KEY"
-    raise ValueError("GREYDOT_APP_KEY environment variable is not set.")
+    # raise ValueError("GREYDOT_APP_KEY environment variable is not set.")
 
 
 def parse_xml_response(response):
     """
     **Args**::
-    - response: String of raw xml response returned
+
+    - `response`: String of raw xml response returned
 
     **Returns**::
+
+    >
     {
-    'result_status':"Success",
-    'to':'27110000000',
-    'sms_id':'0001',
-    'query_status':'DONE',
-    'query_code':'D0011'
+        'result_status':"Success",
+        'to':'27110000000',
+        'sms_id':'0001',
+        'query_status':'DONE',
+        'query_code':'D0011'
     }
+
+
+
     """
     print(response)
     base = etree.fromstring(response)
@@ -77,18 +102,24 @@ def parse_xml_response(response):
 def send_sms(recipients=[], message="Test Message"):
     """
     **Args**::
+
     - `recipients`: Number that will receive the sms message or list of numbers
 
     - `message`: Text to be sent to number
 
     **Returns**::
+
+    >
     {
-    'result_status':"Success",
-    'to':'27110000000',
-    'sms_id':'0001',
-    'query_status':'DONE',
-    'query_code':'D0011'
+        'result_status':"Success",
+        'to':'27110000000',
+        'sms_id':'0001',
+        'query_status':'DONE',
+        'query_code':'D0011'
     }
+
+
+
     """
     if len(recipients) > 1:
         par1 = "e".join(recipients)
