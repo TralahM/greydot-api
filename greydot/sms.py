@@ -50,7 +50,7 @@ Example reply :
 """
 import requests
 from lxml import etree
-from io import StringIO,BytesIO
+from io import StringIO, BytesIO
 import os
 import urllib.parse
 
@@ -85,23 +85,32 @@ def parse_xml_response(response):
 
     """
     print(response)
-    parser=etree.XMLParser(recover=True)
+    parser = etree.XMLParser(recover=True)
     response = bytes(response, encoding="utf-8")
-    base=etree.parse(BytesIO(response),parser)
+    base = etree.parse(BytesIO(response), parser)
     # base = etree.fromstring(response)
-    query_result = base.xpath("//query/query_result/status")
-    query_status = base.xpath("//query/query_status")[0].text
-    query_code = base.xpath("//query/query_code")[0].text
-    to = base.xpath("//query/query_result/to")[0].text
-    sms_id = base.xpath("//query/query_result/sms_id")[0].text
-    result_status = query_result[0].text
-    return {
-        "result_status": result_status,
-        "to": to,
-        "sms_id": sms_id,
-        "query_status": query_status,
-        "query_code": query_code,
-    }
+    try:
+        query_result = base.xpath("//query/query_result/status")
+        query_status = base.xpath("//query/query_status")[0].text
+        query_code = base.xpath("//query/query_code")[0].text
+        to = base.xpath("//query/query_result/to")[0].text
+        sms_id = base.xpath("//query/query_result/sms_id")[0].text
+        result_status = query_result[0].text
+        return {
+            "result_status": result_status,
+            "to": to,
+            "sms_id": sms_id,
+            "query_status": query_status,
+            "query_code": query_code,
+        }
+    except Exception:
+        return {
+            "result_status": "result_status",
+            "to": "to",
+            "sms_id": "sms_id",
+            "query_status": "query_status",
+            "query_code": "query_code",
+        }
 
 
 def send_sms(recipients=[], message="Test Message"):
