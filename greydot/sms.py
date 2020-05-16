@@ -58,7 +58,8 @@ FID = 11
 if os.environ.get("GREYDOT_APP_KEY") is not None:
     GREYDOT_APP_KEY = os.environ.get("GREYDOT_APP_KEY")
 else:
-    GREYDOT_APP_KEY = "GREYDOT_APP_KEY"
+    GREYDOT_APP_KEY = "fe43abd74579155d4e05"
+    # GREYDOT_APP_KEY = "GREYDOT_APP_KEY"
     # raise ValueError("GREYDOT_APP_KEY environment variable is not set.")
 
 
@@ -83,6 +84,7 @@ def parse_xml_response(response):
 
     """
     print(response)
+    response = bytes(response, encoding="utf-8")
     base = etree.fromstring(response)
     query_result = base.xpath("//query/query_result/status")
     query_status = base.xpath("//query/query_status")[0].text
