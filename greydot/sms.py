@@ -50,6 +50,7 @@ Example reply :
 """
 import requests
 from lxml import etree
+from io import StringIO,BytesIO
 import os
 import urllib.parse
 
@@ -84,8 +85,10 @@ def parse_xml_response(response):
 
     """
     print(response)
+    parser=etree.XMLParser(recover=True)
     response = bytes(response, encoding="utf-8")
-    base = etree.fromstring(response)
+    base=etree.parse(BytesIO(response),parser)
+    # base = etree.fromstring(response)
     query_result = base.xpath("//query/query_result/status")
     query_status = base.xpath("//query/query_status")[0].text
     query_code = base.xpath("//query/query_code")[0].text
