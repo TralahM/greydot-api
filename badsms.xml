@@ -1,0 +1,25 @@
+<b/>
+<br>
+    <br/>
+<?xml version="1.0" encoding="utf-8" ?>
+
+<query>
+
+    <query_result>
+
+        <status>Success</status>
+
+        <status>Send_SMS</status>
+
+        <to>27110000000</to>
+
+        <sms_id>000</sms_id>
+
+    </query_result>
+
+    <query_status>DONE</query_status>
+
+    <query_code>D0011</query_code>
+
+</query>
+

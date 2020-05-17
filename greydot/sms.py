@@ -44,14 +44,11 @@ Example reply :
 
     </query>
 
-
-
-
 """
 import requests
-from lxml import etree
-from io import StringIO, BytesIO
 import os
+import xmltodict
+from json import dumps, loads
 import urllib.parse
 
 API_URL = "https://greydotapi.me/"
@@ -62,6 +59,31 @@ else:
     GREYDOT_APP_KEY = "fe43abd74579155d4e05"
     # GREYDOT_APP_KEY = "GREYDOT_APP_KEY"
     # raise ValueError("GREYDOT_APP_KEY environment variable is not set.")
+
+SAMPLE = """
+<?xml version="1.0" encoding="utf-8" ?>
+
+<query>
+
+<query_result>
+
+<status>Success</status>
+
+<status>Send_SMS</status>
+
+<to>27110000000</to>
+
+<sms_id>000</sms_id>
+
+</query_result>
+
+<query_status>DONE</query_status>
+
+<query_code>D0011</query_code>
+
+</query>
+
+"""
 
 
 def parse_xml_response(response):
@@ -82,27 +104,12 @@ def parse_xml_response(response):
     }
 
 
-
     """
-    print(response)
-    parser = etree.XMLParser(recover=True)
-    response = bytes(response, encoding="utf-8")
-    base = etree.parse(BytesIO(response), parser)
-    # base = etree.fromstring(response)
+    # print(response)
     try:
-        query_result = base.xpath("//query/query_result/status")
-        query_status = base.xpath("//query/query_status")[0].text
-        query_code = base.xpath("//query/query_code")[0].text
-        to = base.xpath("//query/query_result/to")[0].text
-        sms_id = base.xpath("//query/query_result/sms_id")[0].text
-        result_status = query_result[0].text
-        return {
-            "result_status": result_status,
-            "to": to,
-            "sms_id": sms_id,
-            "query_status": query_status,
-            "query_code": query_code,
-        }
+        doc = dumps(xmltodict.parse(response[response.find("<?xml"):]))
+        print(doc)
+        return loads(doc)
     except Exception:
         return {
             "result_status": "result_status",
