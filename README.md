@@ -17,7 +17,7 @@
 
 # Documentation
 
-[![Documentation](https://img.shields.io/badge/Docs-greydot-api-blue.svg?style=for-the-badge)](https://github.com/TralahM/greydot-api)
+[![Documentation](https://img.shields.io/badge/Docs-greydot_api-blue.svg?style=for-the-badge)](https://greydot-api.readthedocs.io)
 
 # How to Install
 ```bash
