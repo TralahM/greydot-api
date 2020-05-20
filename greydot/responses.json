@@ -1,0 +1,53 @@
+[
+    {
+        "query": {
+            "query_result": {
+                "status": "Success",
+                "function": "Airtime balance",
+                "amount": "20.00"
+            },
+            "query_status": "DONE",
+            "query_code": "D0005"
+        }
+    },
+    {
+        "query": {
+            "query_result": {
+                "status": "Success",
+                "function": "Wallet transfer",
+                "amount": "1",
+                "to": "25911000000"
+            },
+            "query_status": "DONE",
+            "query_code": "D0002"
+        }
+    },
+    {
+        "query": {
+            "query_result": {
+                "status": "Success",
+                "function": "SignUp",
+                "signup_status": "Registered",
+                "identity": "0123456789",
+                "password": "9876543210",
+                "appkey": "abcdefghijklmnopqrst"
+            },
+            "query_status": "DONE",
+            "query_code": "D0017"
+        }
+    },
+    {
+        "query": {
+            "query_result": {
+                "status": [
+                    "Success",
+                    "Send_SMS"
+                ],
+                "to": "27110000000",
+                "sms_id": "000"
+            },
+            "query_status": "DONE",
+            "query_code": "D0011"
+        }
+    }
+]

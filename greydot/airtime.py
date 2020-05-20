@@ -14,6 +14,21 @@ https://greydotapi.me/?k=abcdefghijklmnopqrst&do=5
 
 Example reply :
 
+    {
+        "query": {
+            "query_result": {
+                "status": "Success",
+                "function": "Airtime balance",
+                "amount": "20.00"
+            },
+            "query_status": "DONE",
+            "query_code": "D0005"
+        }
+    }
+
+"""
+
+SAMPLE = """
     <?xml version="1.0" encoding="utf-8" ?>
 
     <query>
@@ -33,5 +48,4 @@ Example reply :
     <query_code>D0005</query_code>
 
     </query>
-
 """

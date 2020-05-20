@@ -14,6 +14,27 @@ Example url :
 https://greydotapi.me/?par2=1&par1=25911000000&k=abcdefghijklmnopqrst&do=2
 
 Example reply :
+
+    {
+        "query": {
+            "query_result": {
+                "status": "Success",
+                "function": "Wallet transfer",
+                "amount": "1",
+                "to": "25911000000"
+            },
+            "query_status": "DONE",
+            "query_code": "D0002"
+        }
+    }
+
+"""
+from sms import GREYDOT_APP_KEY, API_URL, parse_xml_response
+import requests
+import urllib.parse
+
+FID = 2
+SAMPLE = """
 <?xml version="1.0" encoding="utf-8" ?>
 <query>
     <query_result>
@@ -26,11 +47,6 @@ Example reply :
     <query_code>D0002</query_code>
 </query>
 """
-from greydot.sms import GREYDOT_APP_KEY, URL, parse_xml_response
-import requests
-import urllib.parse
-
-FID = 2
 
 
 def send_money(Amount=0.0, To=""):

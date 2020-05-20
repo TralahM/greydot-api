@@ -33,3 +33,24 @@ Example reply :
     <query_code>D0003</query_code>
 
 """
+SAMPLE = """
+
+    <?xml version="1.0" encoding="utf-8" ?>
+
+    <query>
+
+    <query_result>
+
+    <status>Success</status>
+
+    <function>Digit balance</function>
+
+    <amount>10.00</amount>
+
+    </query_result>
+
+    <query_status>DONE</query_status>
+
+    <query_code>D0003</query_code>
+
+"""

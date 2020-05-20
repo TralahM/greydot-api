@@ -21,6 +21,31 @@ Example 1 url :
 https://greydotapi.me/?k=abcdefghijklmnopqrst&do=19&par1=Joe&par2=Black&par3=joe@email.me&par4=0898887744&par5=1234
 
 Example reply :
+
+    {
+        "query": {
+            "query_result": {
+                "status": "Success",
+                "function": "SignUp",
+                "signup_status": "Registered",
+                "identity": "0123456789",
+                "password": "9876543210",
+                "appkey": "abcdefghijklmnopqrst"
+            },
+            "query_status": "DONE",
+            "query_code": "D0017"
+        }
+    }
+
+"""
+from sms import GREYDOT_APP_KEY, API_URL, parse_xml_response
+import requests
+import urllib.parse
+from collections import defaultdict
+
+FID = 19
+SAMPLE = """
+
 <?xml version="1.0" encoding="utf-8" ?>
 <query>
     <query_result>
@@ -35,12 +60,6 @@ Example reply :
     <query_code>D0017</query_code>
 </query>
 """
-from greydot.sms import GREYDOT_APP_KEY, URL, parse_xml_response
-import requests
-import urllib.parse
-from collections import defaultdict
-
-FID = 19
 
 
 def register(

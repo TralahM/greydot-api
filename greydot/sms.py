@@ -22,27 +22,20 @@ https://greydotapi.me/?par1=0820000000&par2=Test+sms%2C+Hallo+world.&k=abcdefghi
 
 Example reply :
 
-    <?xml version="1.0" encoding="utf-8" ?>
-
-    <query>
-
-    <query_result>
-
-    <status>Success</status>
-
-    <status>Send_SMS</status>
-
-    <to>27110000000</to>
-
-    <sms_id>000</sms_id>
-
-    </query_result>
-
-    <query_status>DONE</query_status>
-
-    <query_code>D0011</query_code>
-
-    </query>
+    {
+        "query": {
+            "query_result": {
+                "status": [
+                    "Success",
+                    "Send_SMS"
+                ],
+                "to": "27110000000",
+                "sms_id": "000"
+            },
+            "query_status": "DONE",
+            "query_code": "D0011"
+        }
+    }
 
 """
 import requests
