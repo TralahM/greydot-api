@@ -5,7 +5,7 @@ Submodules
 -----------
 
 greydot.signup module
---------------------
+----------------------
 
 .. automodule:: greydot.signup
    :members:
