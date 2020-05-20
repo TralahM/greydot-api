@@ -4,6 +4,24 @@ GreyDot Package
 Submodules
 -----------
 
+greydot.signup module
+--------------------
+
+.. automodule:: greydot.signup
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+greydot.b2c module
+--------------------
+
+.. automodule:: greydot.b2c
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 greydot.sms module
 --------------------
 
