@@ -29,7 +29,7 @@ Example reply :
     }
 
 """
-from sms import GREYDOT_APP_KEY, API_URL, parse_xml_response
+from greydot.sms import GREYDOT_APP_KEY, API_URL, parse_xml_response
 import requests
 import urllib.parse
 
